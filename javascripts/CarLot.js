@@ -13,4 +13,4 @@ var CarLot = (function () {
     }
   };
 
-})();
+})(CarLot || {});
