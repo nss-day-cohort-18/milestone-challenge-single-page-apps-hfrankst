@@ -14,10 +14,9 @@ var CarLot = (function () {
       	var usedCars = JSON.parse(inventoryLoader.responseText);
       	console.log("Successful load", usedCars);
       }
-
-      //upon the loading of the page, run this function....what do I want the function to do?
+      //upon the loading of the page, run this function..I want the 'product cards' for each car to be made in the div
       inventoryLoader.addEventListener("load", function () {
-
+        //this may be the place to call a function from the CarArt file
       });
       //is this saying, "if there is an error loading the page, do this function"? If so, what do I want to do if there's an error
       inventoryLoader.addEventListener("error", function(){
@@ -26,6 +25,7 @@ var CarLot = (function () {
       //The following two lines reach out, open the JSON file, grab the info and then send it into the functions above
       inventoryLoader.open("GET", "inventory.json");
       inventoryLoader.send();
+      console.log("Current inventory is ", inventory);
     }
   };
 

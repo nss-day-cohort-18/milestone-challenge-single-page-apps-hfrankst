@@ -2,7 +2,7 @@
 
 var CarLot = (function (inventory) {
 	//use this IIFE to build the car cards 
-	for (inventory[i] in inventory) {
+	for (inventory[0] in inventory) {
 		var carCard = 
 		`<article>
 		<img>
