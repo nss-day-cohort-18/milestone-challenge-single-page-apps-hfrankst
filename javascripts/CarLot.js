@@ -13,12 +13,40 @@ var CarLot = (function () {
       inventoryLoader.addEventListener("load", function putCarsInCards() {
         //this may be the place to call a function from the CarArt file
         	//responseText tells the program to look for the text within the JSON rather than the braces and brackets
-        var usedCars = JSON.parse(inventoryLoader.responseText);
+        var usedCars = JSON.parse(event.target.responseText);
         console.log("usedCars", usedCars);
-        console.log("the make of the cars;", usedCars.make);
-        carCard(usedCars);
+        var carArray = Object.values(usedCars)[0];
+        console.log("What is in carArray", carArray);
+        console.log("getting values", carArray[0].make);
+        inventory.push(carArray);
+        console.log("updated inventory? ", inventory);
+        carCard(carArray);
       });
+       function carCard(carArray){
+                var i = 0;
+                var carDiv = document.getElementsByClassName('col-sm-4 col-md-6')[i];
+                console.log("testing the waters", carDiv);
+                var car;
+                for(car in carArray){
+                  var carToSell = '';
+                  var carStuff = carArray[car];
+                  carToSell += '<div>';
+                  //add the make and model of the car
+                  carToSell += '<h3>' + carArray[i].make + ': ' + carArray[i].model + '</h3>';
+                  //add the year and price 
+                  carToSell += '<h5>' + carArray[i].year + '</h5>';
+                  carToSell += '<p>' + carArray[i].price + '</p>';
+                  carToSell += '<p>' + carArray[i].description + '</p>';
+                  //close the card
+                  carToSell += '</div>';
 
+                  carDiv.innerHTML += carToSell; 
+                  i++;
+                  console.log('looping');
+                }
+
+
+            };
 
       //is this saying, "if there is an error loading the page, do this function"? If so, what do I want to do if there's an error
       inventoryLoader.addEventListener("error", function(){
