@@ -2,7 +2,7 @@
 
 var CarLot = (function () {
 
-
+console.log("event page loading");
 //the event listeners will go on this page
 function activateEvents (){
 // listening for the card being selected...this is the card that will increase the border and change the background color
@@ -28,7 +28,7 @@ mirrorInput.addEventListener('keyup', function(event){
 
 
 
-};
+}
 
 
 

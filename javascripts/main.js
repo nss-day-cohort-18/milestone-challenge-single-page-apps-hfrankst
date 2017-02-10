@@ -1,7 +1,6 @@
 "use strict";
 
 
-// var CarLot = (function () {
 function populatePage (inventory) {
 //   Loop over the inventory and populate the page
 // need an event listener on the input field that will trigger a function to copy text input into the description section
@@ -12,12 +11,11 @@ function populatePage (inventory) {
 
   // Now that the DOM is loaded, establish all the event listeners needed
   //this is being seen as undefined
-  CarLot.activateEvents();
+	CarLot.activateEvents();
+	CarLot.loadInventory();//grunt is saying this is undefined at the moment and I don't know why, but I don't care because it is still printed the data onto the html
+	console.log("inventory function invoked");
 }
-
+populatePage();
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
-CarLot.loadInventory();//grunt is saying this is undefined at the moment and I don't know why, but I don't care because it is still printed the data onto the html
-console.log("inventory function invoked");
 
-// })(CarLot || {});

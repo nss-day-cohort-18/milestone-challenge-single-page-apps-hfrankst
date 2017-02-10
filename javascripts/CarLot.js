@@ -30,47 +30,24 @@ console.log("file being read");
         carCard(carArray);
         console.log("the result of passing the inventory into the carCard function", carArray);
       });
+  
+  //The following two lines reach out, open the JSON file, grab the info and then send it into the functions above
+      inventoryLoader.open("GET", "inventory.json");
+      inventoryLoader.send();
 
 
 
+
+      console.log("Current inventory is ", inventory);//this doesn't reflect the pushing done in the above code and I'm not sure why
       //is this saying, "if there is an error loading the page, do this function"? If so, what do I want to do if there's an error
       inventoryLoader.addEventListener("error", function(){
         // alert("Oops, somehow we lost all of your cars!!!");//this alert is undefined..not sure why
       });
+  
+  }//close of loadInventory function
 
-       function carCard(carArray){
-              
-              //the for loop runs for the length of the carArray and increases with every iteration
-                for(var i = 0; i < carArray.length; i++){
-                  //the div is set to a variable and since it is grabbing by class name, and theres an array of these classes [i] must be included to change divs with every iteration
-                var carDiv = document.getElementsByClassName('col-sm-4')[i];
-                var carToSell = '';
-                var carStuff = carArray[i];
-                
-                  //building the cards
-                  carToSell += '<div>';
-                  //add the make and model of the car
-                  carToSell += '<h3>' + carStuff.make + ': ' + carStuff.model + '</h3>';
-                  //add the year and price 
-                  carToSell += '<h5>' + carStuff.year + '</h5>';
-                  carToSell += '<p>' + carStuff.price + '</p>';
-                  carToSell += '<p>' + carStuff.description + '</p>';
-                  //close the card
-                  carToSell += '</div>';
-
-                  carDiv.innerHTML += carToSell; 
-                  // console.log('loop', [i + 1]);
-                }
-
-
-      console.log("Current inventory is ", inventory);//this doesn't reflect the pushing done in the above code and I'm not sure why
-            }
-
-
-      //The following two lines reach out, open the JSON file, grab the info and then send it into the functions above
-      inventoryLoader.open("GET", "inventory.json");
-      inventoryLoader.send();
-    }
-  };
+    
+    
+  };//end of the return statement that holds these functions
 
 })(CarLot || {});
