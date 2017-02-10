@@ -1,11 +1,11 @@
 "use strict";
-console.log("CarArt hooked up to index");
+// console.log("CarArt hooked up to index");
 
 
 
 ////////this iife is handling the building of the car cards/////////////
 var CarLot = (function (oldCarLot) {
-console.log("test2");
+// console.log("test2");
 	oldCarLot.carCard = function (carArray){
         	console.log("The car Card function is being called");      
               //the for loop runs for the length of the carArray and increases with every iteration

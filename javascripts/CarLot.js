@@ -1,13 +1,13 @@
 "use strict";
 
 //////////////////////this iife is loading the info from the json file
-console.log("CarLot hooked up to index");
+// console.log("CarLot hooked up to index");
 
 var CarLot = (function (oldCarLot) {
   //this array is inside the overall function so that it can be pushed into from below?? this may not be right though
   var inventory = [];
 
-  console.log("test1");
+  // console.log("test1");
     //this loadInventory function will be able to be invoked with CarLot.loadInventory();
     oldCarLot.loadInventory = function () {
       //storing the request to the json file in a newly declared variable
@@ -18,17 +18,17 @@ var CarLot = (function (oldCarLot) {
       inventoryLoader.addEventListener("load", function () {
         	//responseText tells the program to look for the text within the JSON rather than the braces and brackets
         var usedCars = JSON.parse(event.target.responseText);
-          console.log("straight outta the JSON", usedCars);
+          // console.log("straight outta the JSON", usedCars);
           //the data comes back as an array so the index number must be explicitly stated to work with 
         var carArray = Object.values(usedCars)[0];
-          console.log("What is in carArray", carArray);
+          // console.log("What is in carArray", carArray);
           //this is logging the ability to properly grab a value
-          console.log("getting values out of carArray", carArray[0].make);
+          // console.log("getting values out of carArray", carArray[0].make);
           //here I am pushing the values of the carArray into the inventory array, and it is working
         inventory.push(carArray);
-          console.log("the inventory array", inventory);//successful push
-          console.log("the carArray", carArray);
-        carCard(carArray);/////////currently grunt thinks this is undefined. 
+          // console.log("the inventory array", inventory);//successful push
+          // console.log("the carArray", carArray);
+        carCard(carArray);/////////currently grunt thinks this is undefined. Why doesn't this get passed into the carCard function built on the CarArt.js
         console.log("the result of passing the inventory into the carCard function", carArray);
       });
   
