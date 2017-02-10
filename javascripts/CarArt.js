@@ -6,14 +6,14 @@
 ////////this iife is handling the building of the car cards/////////////
 var CarLot = (function (oldCarLot) {
 // console.log("test2");
-	oldCarLot.carCard = function (carArray){
+	oldCarLot.carCard = function (usedCars){
         	console.log("The car Card function is being called");      
               //the for loop runs for the length of the carArray and increases with every iteration
-                for(var i = 0; i < carArray.length; i++){
+                for(var i = 0; i < usedCars.length; i++){
                   //the div is set to a variable and since it is grabbing by class name, and theres an array of these classes [i] must be included to change divs with every iteration
                 var carDiv = document.getElementsByClassName('col-sm-4')[i];
                 var carToSell = '';
-                var carStuff = carArray[i];
+                var carStuff = usedCars[i];
                 
                   //building the cards
                   carToSell += '<div>';
