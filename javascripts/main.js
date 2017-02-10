@@ -1,6 +1,6 @@
 "use strict";
 
-
+////////////////this page is like a big switchboard, invoking all the functions that were built on the other pages
 function populatePage (inventory) {
 //   Loop over the inventory and populate the page
 // need an event listener on the input field that will trigger a function to copy text input into the description section
@@ -13,6 +13,7 @@ function populatePage (inventory) {
   //this is being seen as undefined
 	CarLot.activateEvents();
 	CarLot.loadInventory();//grunt is saying this is undefined at the moment and I don't know why, but I don't care because it is still printed the data onto the html
+	CarLot.carCard();
 	console.log("inventory function invoked");
 }
 populatePage();

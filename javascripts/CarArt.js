@@ -1,10 +1,10 @@
 "use strict";
+////////this iife is handling the building of the car cards/////////////
+var CarLot = (function (oldCarLot) {
+console.log("CarArt being read");
 
-var CarLot = (function () {
-
-return {
-carCard: function (carArray){
-              
+	oldCarLot.carCard = function (carArray){
+        	console.log("The car Card function is being called");      
               //the for loop runs for the length of the carArray and increases with every iteration
                 for(var i = 0; i < carArray.length; i++){
                   //the div is set to a variable and since it is grabbing by class name, and theres an array of these classes [i] must be included to change divs with every iteration
@@ -24,10 +24,9 @@ carCard: function (carArray){
                   carToSell += '</div>';
 
                   carDiv.innerHTML += carToSell; 
-                  // console.log('loop', [i + 1]);
                 }
-	},
-}
+	};
+return oldCarLot;
 
 
 })(CarLot || {});

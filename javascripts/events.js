@@ -1,37 +1,32 @@
 "use strict"; 
 
-var CarLot = (function () {
+
+//////////////////////this iife is building all of the event listeners 
+var CarLot = (function (oldCarLot) {
 
 console.log("event page loading");
 //the event listeners will go on this page
-function activateEvents (){
+oldCarLot.activateEvents = function(){
 // listening for the card being selected...this is the card that will increase the border and change the background color
-var lrgBorder = document.getElementsByClassName("col-sm-4");
-console.log("is this working?", lrgBorder);
-	lrgBorder.addEventListener('click', function(event){
-	event.classList.toggle('.clicked');
-	console.log("click seen");
-});
+	var matchingDescription = document.getElementsByClassName("col-sm-4");//grabbing all the card spaces in the bootstrap grid
+	matchingDescription.addEventListener('keypress', function(event){
+		var duplicate = document.getElementsByClassName("col-sm-4");
+		console.log("description click seen");
+		//set duplicate.value to equal the target of where I want to out put the text 
+	});
 
+	//creating the event listener for the increased border and background color change
+	var lrgBorder = document.getElementsByClassName("col-sm-4");
+		console.log("The Cards", lrgBorder);//it is in fact successfully grabbing the grid spaces
+		lrgBorder.addEventListener('click', function(event){
+			event.classList.toggle('clicked');
+			console.log("border click seen");
+	});
 
-	////////////////////////////////////////////TAKEN FROM A DIFFERENT EXERCISE TO USE AS REFERENCE WILL BE DELETED AFTER MILESTONE COMPLETION
-// //4. When typing into the input field, the output div should mirror the input
-// 	//grabbing the input field by id and storing its value in a variable
-var mirrorInput = document.getElementById('keypress-input');
-	//attaching the event listener to the input field, setting it up to run on every keyup event
-mirrorInput.addEventListener('keyup', function(event){
-	//creating a new variable to hold the input field info and set it equal to the output div, so that when the key is released in the input field the text is printed to the output area
-	var duplicate = document.getElementById('keypress-input');
-	document.getElementById('output-target').innerHTML = duplicate.value;
-});
+};//closing activateEvents function
+	
 
-
-
-
-}
-
-
-
+	return oldCarLot;
 
 
 

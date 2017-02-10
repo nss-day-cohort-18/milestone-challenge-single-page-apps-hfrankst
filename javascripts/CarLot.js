@@ -1,14 +1,15 @@
 "use strict";
-//this is the overall function of the IIFE
-var CarLot = (function () {
+
+//////////////////////this iife is loading the info from the json file
+
+var CarLot = (function (oldCarLot) {
   //this array is inside the overall function so that it can be pushed into from below?? this may not be right though
   var inventory = [];
 
-  //this is returning the value of the code block that follows 
-console.log("file being read");
-  return {
+  console.log("CarLot being read");
+  
     //this loadInventory function will be able to be invoked with CarLot.loadInventory();
-    loadInventory: function (callback) {
+    oldCarLot.loadInventory = function (callback) {
       //storing the request to the json file in a newly declared variable
       var inventoryLoader = new XMLHttpRequest();
 
@@ -27,7 +28,7 @@ console.log("file being read");
         inventory.push(carArray);
           console.log("the inventory array", inventory);//successful push
           console.log("the carArray", carArray);
-        carCard(carArray);
+        carCard(carArray);/////////currently grunt thinks this is undefined. 
         console.log("the result of passing the inventory into the carCard function", carArray);
       });
   
@@ -41,13 +42,12 @@ console.log("file being read");
       console.log("Current inventory is ", inventory);//this doesn't reflect the pushing done in the above code and I'm not sure why
       //is this saying, "if there is an error loading the page, do this function"? If so, what do I want to do if there's an error
       inventoryLoader.addEventListener("error", function(){
-        // alert("Oops, somehow we lost all of your cars!!!");//this alert is undefined..not sure why
+        alert("Oops, somehow we lost all of your cars!!!");//this alert is undefined..not sure why
       });
   
-  }//close of loadInventory function
+  };//closing loadInventory function
 
+    return oldCarLot;//returning the value of this function to make it accessible to the rest of the files
     
-    
-  };//end of the return statement that holds these functions
 
 })(CarLot || {});
