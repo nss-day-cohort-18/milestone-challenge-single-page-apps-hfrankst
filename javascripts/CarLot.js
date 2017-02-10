@@ -1,15 +1,15 @@
 "use strict";
 
 //////////////////////this iife is loading the info from the json file
+console.log("CarLot hooked up to index");
 
 var CarLot = (function (oldCarLot) {
   //this array is inside the overall function so that it can be pushed into from below?? this may not be right though
   var inventory = [];
 
-  console.log("CarLot being read");
-  
+  console.log("test1");
     //this loadInventory function will be able to be invoked with CarLot.loadInventory();
-    oldCarLot.loadInventory = function (callback) {
+    oldCarLot.loadInventory = function () {
       //storing the request to the json file in a newly declared variable
       var inventoryLoader = new XMLHttpRequest();
 

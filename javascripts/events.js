@@ -1,10 +1,10 @@
 "use strict"; 
+console.log("event hooked up to index");
 
 
 //////////////////////this iife is building all of the event listeners 
 var CarLot = (function (oldCarLot) {
-
-console.log("event page loading");
+console.log("test3");
 //the event listeners will go on this page
 oldCarLot.activateEvents = function(){
 // listening for the card being selected...this is the card that will increase the border and change the background color

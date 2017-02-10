@@ -1,8 +1,11 @@
 "use strict";
+console.log("CarArt hooked up to index");
+
+
+
 ////////this iife is handling the building of the car cards/////////////
 var CarLot = (function (oldCarLot) {
-console.log("CarArt being read");
-
+console.log("test2");
 	oldCarLot.carCard = function (carArray){
         	console.log("The car Card function is being called");      
               //the for loop runs for the length of the carArray and increases with every iteration
@@ -24,9 +27,13 @@ console.log("CarArt being read");
                   carToSell += '</div>';
 
                   carDiv.innerHTML += carToSell; 
-                }
-	};
-return oldCarLot;
+        }//closing the for loop
+
+	};//closing the carCard function
+
+	return oldCarLot;//returning to make it public
+
+	
 
 
 })(CarLot || {});
