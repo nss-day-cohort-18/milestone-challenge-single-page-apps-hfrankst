@@ -5,7 +5,7 @@
 
 var CarLot = (function (oldCarLot) {
   //this array is inside the overall function so that it can be pushed into from below?? this may not be right though
-  var inventory;
+  // var inventory;//I'm not using this yet, but I think I will need to 
 
     //this loadInventory function will be able to be invoked with CarLot.loadInventory();
     oldCarLot.loadInventory = function () {
@@ -15,8 +15,9 @@ var CarLot = (function (oldCarLot) {
 
       inventoryLoader.addEventListener("load", function () {
         var usedCars = JSON.parse(event.target.responseText);//in this event listener, the info from the json is parsed into usable data once the loading is complete
-          console.log("straight outta the JSON", usedCars);//looking at what was just loaded up
-        CarLot.carCard(usedCars);//this is sending the object full of car data to the carCard function on the CarArt.js to build the car cards on the DOM
+          // console.log("straight outta the JSON", usedCars);//looking at what was just loaded up
+        oldCarLot.carCard(usedCars);//this is sending the object full of car data to the carCard function on the CarArt.js to build the car cards on the DOM
+        oldCarLot.activateEvents();
       });
 
       inventoryLoader.addEventListener("error", function(){
@@ -25,9 +26,9 @@ var CarLot = (function (oldCarLot) {
   
     };//close of loadInventory function
 
-      console.log("inventory", inventory);
+      // console.log("inventory", inventory);
       /////////////////////////////I DONT KNOW WHAT THIS IS SUPPOSED TO DO////////////////////////////////////
-    oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
+    // oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
 
     return oldCarLot;//returning the value of this function to make it accessible to the rest of the files
     
