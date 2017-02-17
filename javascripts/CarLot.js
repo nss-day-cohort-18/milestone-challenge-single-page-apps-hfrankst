@@ -6,51 +6,28 @@
 var CarLot = (function (oldCarLot) {
   //this array is inside the overall function so that it can be pushed into from below?? this may not be right though
   var inventory;
-  // var usedCars = {};
 
-  // console.log("test1");
     //this loadInventory function will be able to be invoked with CarLot.loadInventory();
     oldCarLot.loadInventory = function () {
-      //storing the request to the json file in a newly declared variable
-      var inventoryLoader = new XMLHttpRequest();
-
-      //when the page loads, run this function to parse the info in the JSON file and make it able to be manipulated
+      var inventoryLoader = new XMLHttpRequest();//this is the request to reach out to the json file
+        inventoryLoader.open("GET", "inventory.json");//this 'get' function actually grabs the info from the json
+        inventoryLoader.send();
 
       inventoryLoader.addEventListener("load", function () {
-        	//responseText tells the program to look for the text within the JSON rather than the braces and brackets
-        var usedCars = JSON.parse(event.target.responseText);
-          console.log("straight outta the JSON", usedCars);
-          //the data comes back as an array so the index number must be explicitly stated to work with 
-        // var carArray = usedCars.cars;
-          // console.log("What is in carArray", carArray);
-          //this is logging the ability to properly grab a value
-          // console.log("getting values out of carArray", carArray[0].make);
-          //here I am pushing the values of the carArray into the inventory array, and it is working
-        inventory = usedCars;
-          // console.log("the inventory array", inventory);//successful push
-          // console.log("the carArray", carArray);
-          // return carArray;
-        CarLot.carCard(usedCars);/////////currently grunt thinks this is undefined. Why doesn't this get passed into the carCard function built on the CarArt.js
-
-        // console.log("the result of passing the inventory into the carCard function", carArray.length);
+        var usedCars = JSON.parse(event.target.responseText);//in this event listener, the info from the json is parsed into usable data once the loading is complete
+          console.log("straight outta the JSON", usedCars);//looking at what was just loaded up
+        CarLot.carCard(usedCars);//this is sending the object full of car data to the carCard function on the CarArt.js to build the car cards on the DOM
       });
-  
-  //The following two lines reach out, open the JSON file, grab the info and then send it into the functions above
-      inventoryLoader.open("GET", "inventory.json");
-      inventoryLoader.send();
 
-
-
-
-      // console.log("Current inventory is ", inventory);//this doesn't reflect the pushing done in the above code and I'm not sure why
-      //is this saying, "if there is an error loading the page, do this function"? If so, what do I want to do if there's an error
       inventoryLoader.addEventListener("error", function(){
         alert("Oops, somehow we lost all of your cars!!!");//this alert is undefined..not sure why
-      });
+      });     
   
-  };//closing loadInventory function
-      oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
+    };//closing loadInventory function
 
+
+      oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
+      // console.log("inventory", inventory);
     return oldCarLot;//returning the value of this function to make it accessible to the rest of the files
     
 
