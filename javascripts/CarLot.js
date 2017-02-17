@@ -11,7 +11,7 @@ var CarLot = (function (oldCarLot) {
     oldCarLot.loadInventory = function () {
       var inventoryLoader = new XMLHttpRequest();//this is the request to reach out to the json file
         inventoryLoader.open("GET", "inventory.json");//this 'get' function actually grabs the info from the json
-        inventoryLoader.send();
+        inventoryLoader.send();//I think that this function 'sends' the data out to make it usable to the other functions?
 
       inventoryLoader.addEventListener("load", function () {
         var usedCars = JSON.parse(event.target.responseText);//in this event listener, the info from the json is parsed into usable data once the loading is complete
@@ -20,14 +20,15 @@ var CarLot = (function (oldCarLot) {
       });
 
       inventoryLoader.addEventListener("error", function(){
-        alert("Oops, somehow we lost all of your cars!!!");//this alert is undefined..not sure why
+        alert("Don't worry, we didn't lose your cars! Try reloading the page.");//this ensures that if the json doesn't load correctly, the user will know that something went wrong
       });     
   
-    };//closing loadInventory function
+    };//close of loadInventory function
 
+      console.log("inventory", inventory);
+      /////////////////////////////I DONT KNOW WHAT THIS IS SUPPOSED TO DO////////////////////////////////////
+    oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
 
-      oldCarLot.returnInventory = () => inventory;//thanks to taylor, this grabs the objects out of the json array and stores them here.
-      // console.log("inventory", inventory);
     return oldCarLot;//returning the value of this function to make it accessible to the rest of the files
     
 

@@ -12,21 +12,17 @@ var CarLot = (function (oldCarLot) {
                 for(var i = 0; i < usedCars.length; i++){
                   //the div is set to a variable and since it is grabbing by class name, and theres an array of these classes [i] must be included to change divs with every iteration
                 var carDiv = document.getElementsByClassName('col-sm-4')[i];
-                var carToSell = '';
-                var carStuff = usedCars[i];
+                // var carStuff = usedCars[i];
                 
-                  //building the cards
-                  carToSell += '<div>';
-                  //add the make and model of the car
-             	  carToSell += '<h3>' + carStuff.make + ': ' + carStuff.model + '</h3>';
-                  //add the year and price 
-                  carToSell += '<h5>' + carStuff.year + '</h5>';
-                  carToSell += '<p>' + carStuff.price + '</p>';
-                  carToSell += '<p>' + carStuff.description + '</p>';
-                  //close the card
-	              carToSell += '</div>';
+                var carToSell = `<div>
+                                  <h3>` + usedCars[i].make + `:` + usedCars[i].model + `</h3>
+                                  <h5>` + usedCars[i].year + `</h5>
+                                  <p>` + usedCars[i].price + `</p>
+                                  <p>` + usedCars[i].description + `</p>
+                                 </div>`;
+                                 
+                  carDiv.innerHTML += carToSell;
 
-                  carDiv.innerHTML += carToSell; 
         }//closing the for loop
 
 	};//closing the carCard function
