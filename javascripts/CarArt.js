@@ -15,7 +15,7 @@ var CarLot = (function (oldCarLot) {
                 var carDiv = document.getElementsByClassName('col-sm-4')[i];
                 // var carStuff = usedCars[i];
                 
-                var carToSell = `<div id="${i}">
+                var carToSell = `<div class="${i}">
                                   <h3>` + usedCars[i].make + `:` + usedCars[i].model + `</h3>
                                   <h5>` + usedCars[i].year + `</h5>
                                   <p>` + usedCars[i].price + `</p>
