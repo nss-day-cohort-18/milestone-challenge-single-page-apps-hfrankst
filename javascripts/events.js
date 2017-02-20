@@ -17,19 +17,14 @@ oldCarLot.activateEvents = function () {
 			if(event.currentTarget.classList.contains("col-sm-4")){//the toggle won't work without the pipe characters and "n"..why is that?
 				event.currentTarget.classList.toggle('clicked');
 		
-			}
-		})
-	}
-			//if the click is on the div with this class col-sm-4 or the counter class in the carToSell variable, then toggle the 'clicked' css class 
-			//I am not sure why, but add the pipe characters and the 'n' let the clicked class get applied to any child element 
-				// onFocus()
-				// console.log("class added");
-				//I need to write code to say that only one card can be red at a time, if one card is selected once another is clicked the 'clicked' class should toggle off of the first selected card and toggle onto the second selected card
+			}//close of the if statement
+		})//close of the event listener function
+	}//close of the for loop
 			
 
 			
 
-		};
+	};//close of the activateEvents function. the mirror input function needs to go in here
 
 
 
@@ -52,7 +47,7 @@ oldCarLot.activateEvents = function () {
 	// }());
 
 	
-	// };//closing the activateEvents function
+	
 
 
 	
