@@ -13,13 +13,13 @@ oldCarLot.activateEvents = function () {
 	// console.log("selectedCarCard", selectedCarCard);
 		for(var i = 0; i < selectedCarCard.length; i++){
 			selectedCarCard[i].addEventListener('click', function (event) {
-			console.log("event.target", event.target);
+			// console.log("event.target", event.target);
 			if(event.currentTarget.classList.contains("col-sm-4")){//the toggle won't work without the pipe characters and "n"..why is that?
 				event.currentTarget.classList.toggle('clicked');
 				document.getElementById("form-control").focus();//focuses the cursor on the input field when card is clicked.
 		
 			}//close of the if statement
-		});//close of the event listener function
+		});//close of the color change event listener function
 	}//close of the for loop
 			
 
@@ -27,13 +27,16 @@ oldCarLot.activateEvents = function () {
 		// console.log("this is the input field", matchingDescription);//logging to see that I'm grabbing the correct thing
 		matchingDescription.addEventListener('keyup', function (event) {//adding the listener to the keyup of keys typed in the input field
 			// console.log("the event the listener is looking for", event);
-			 var newText = event.target.value;
+			 var newText = event.currentTarget.value;
 			 console.log("this is the newText", newText);//this is logging the input in real time
-		var descriptionToBeMirrored = document.getElementsByClassName('clicked mirror');//grabbing the card that has the class clicked and, more specifically, grabbing the description's <p> tag with the class mirror
-		console.log("this is the clicked card that is going to be mirrored", descriptionToBeMirrored);
+			 //need to target the card with clicked class and then target the paragraph with mirror class, then set the value of mirror to equal newText
+		var descriptionToBeMirrored = document.getElementsByClassName('clicked');//grabbing the card that has the class clicked and, more specifically, grabbing the description's <p> tag with the class mirror
+		newText = descriptionToBeMirrored.innerHtml;
+		// console.log("this is the newText.value", newText.value);
+		// console.log("this is the clicked card that is going to be mirrored", descriptionToBeMirrored);
 	// 		cardWithClickedClass = matchingDescription.value; //the this is referring to the input that the 'keypress' is listening for
 
-	});//close of event listener
+	});//close of duplication event listener
 
 
 
