@@ -3,6 +3,9 @@
 	padding: 0;
 }
 
+body{
+	padding: 4em;
+}
 div.col-sm-4 {
 	border: 2px solid black;
 	background-color: lightblue;
@@ -11,6 +14,7 @@ div.col-sm-4 {
 /*styling for the event listeners*/
 
 .clicked {
-	border: 4px solid black;
-	background-color: #f44242;
+	border: 4px solid black !important;
+	background-color: #f44242 !important;
 }
+
