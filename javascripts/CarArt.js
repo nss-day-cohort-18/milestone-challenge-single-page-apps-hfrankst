@@ -19,7 +19,7 @@ var CarLot = (function (oldCarLot) {
                                   <h3>` + usedCars[i].make + `:` + usedCars[i].model + `</h3>
                                   <h5>` + usedCars[i].year + `</h5>
                                   <p>` + usedCars[i].price + `</p>
-                                  <p>` + usedCars[i].description + `</p>
+                                  <p class="mirror">` + usedCars[i].description + `</p>
                                  </div>`;
 
                   carDiv.innerHTML += carToSell;
