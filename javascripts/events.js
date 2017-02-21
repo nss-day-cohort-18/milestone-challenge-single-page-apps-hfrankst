@@ -2,7 +2,7 @@
 // console.log("event hooked up to index");
 //////////////////////////////////////////////////////////////////////
 ////////this iife is building all of the event listeners//////////////
-/////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////
 var CarLot = (function (oldCarLot) {
 // console.log("test3");
 //the event listeners will go on this page
@@ -31,7 +31,8 @@ oldCarLot.activateEvents = function () {
 			 console.log("this is the newText", newText);//this is logging the input in real time
 			 //need to target the card with clicked class and then target the paragraph with mirror class, then set the value of mirror to equal newText
 		var descriptionToBeMirrored = document.getElementsByClassName('clicked');//grabbing the card that has the class clicked and, more specifically, grabbing the description's <p> tag with the class mirror
-		newText = descriptionToBeMirrored.innerHtml;
+			$("div").children("p.mirror").html(newText);
+		// newText = descriptionToBeMirrored.innerHtml;
 		// console.log("this is the newText.value", newText.value);
 		// console.log("this is the clicked card that is going to be mirrored", descriptionToBeMirrored);
 	// 		cardWithClickedClass = matchingDescription.value; //the this is referring to the input that the 'keypress' is listening for
