@@ -15,6 +15,7 @@ oldCarLot.activateEvents = function () {
 			selectedCarCard[i].addEventListener('click', function (event) {
 			// console.log("event.target", event.target);
 			if(event.currentTarget.classList.contains("col-sm-4")){//the toggle won't work without the pipe characters and "n"..why is that?
+				// $(this).attr("id", "clicked");
 				event.currentTarget.classList.toggle('clicked');
 				document.getElementById("form-control").focus();//focuses the cursor on the input field when card is clicked.
 		
@@ -24,22 +25,14 @@ oldCarLot.activateEvents = function () {
 			
 
 	var matchingDescription = document.getElementById("form-control");//grabbing the input field
-		// console.log("this is the input field", matchingDescription);//logging to see that I'm grabbing the correct thing
 		matchingDescription.addEventListener('keyup', function (event) {//adding the listener to the keyup of keys typed in the input field
-			// console.log("the event the listener is looking for", event);
-			 var newText = event.currentTarget.value;
-			 console.log("this is the newText", newText);//this is logging the input in real time
-			 //need to target the card with clicked class and then target the paragraph with mirror class, then set the value of mirror to equal newText
+		var newText = event.currentTarget.value;//storing the value put into the input field here
 		var descriptionToBeMirrored = document.getElementsByClassName('clicked');//grabbing the card that has the class clicked and, more specifically, grabbing the description's <p> tag with the class mirror
-			$("div").children("p.mirror").html(newText);
-		// newText = descriptionToBeMirrored.innerHtml;
-		// console.log("this is the newText.value", newText.value);
-		// console.log("this is the clicked card that is going to be mirrored", descriptionToBeMirrored);
-	// 		cardWithClickedClass = matchingDescription.value; //the this is referring to the input that the 'keypress' is listening for
-
-	});//close of duplication event listener
-
-
+			// if($('div').hasClass('.clicked') === true){
+				$('.col-sm-4').hasClass('clicked').children("p.mirror").text(newText);//I don't have a damn clue how to do this in javascript. I want to do an if statement, saying 'if the div has class of clicked and contains a paragraph with class mirror, then put the newText inside that paragraph'
+				
+			// };
+		});//close of duplication event listener
 
 	};//close of the activateEvents function. the mirror input function needs to go in here
 
