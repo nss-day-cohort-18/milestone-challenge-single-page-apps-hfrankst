@@ -18,13 +18,15 @@ var CarLot = (function (oldCarLot) {
                 var carToSell = `<div class="${i}">
                                   <h3>` + usedCars[i].make + `:` + usedCars[i].model + `</h3>
                                   <h5>` + usedCars[i].year + `</h5>
-                                  <p>` + usedCars[i].price + `</p>
+                                  <h6>` + usedCars[i].price + `</h6>
                                   <p class="mirror">` + usedCars[i].description + `</p>
                                  </div>`;
 
                   carDiv.innerHTML += carToSell;
 
         }//closing the for loop
+      oldCarLot.activateEvents();
+
 
 	};//closing the carCard function
 
